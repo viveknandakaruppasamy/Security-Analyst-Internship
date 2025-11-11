@@ -1,72 +1,74 @@
+# Task 2: Basic Firewall Configuration using UFW 🔥
 
-# Task 1 — Basic Network Scan with Nmap
-
-**Project:** Basic Network Scanning (Internship Task)  
-**Target:** 192.168.0.108  
-**Scan Date:** November 2025  
-**Author:** Vivek Nanda  
+## 🎯 Objective
+To set up and configure a basic firewall using **UFW (Uncomplicated Firewall)** on a Linux system.  
+This helps control inbound and outbound network traffic based on predefined security rules.
 
 ---
 
-## Overview
-This folder contains the results and documentation for a basic Nmap network scan performed on a local virtual machine or authorized lab system.
+## 🧰 Tools Used
+- **UFW (Uncomplicated Firewall)**
+- **Ubuntu/Linux Terminal**
 
 ---
 
-## Files Included
-- nmap_scan_results.txt — Raw Nmap output  
-- screenshots/ — Screenshots of the Nmap scan results  
-- README.md — Documentation explaining the process  
+## ⚙️ Steps Performed
 
----
+1. **Installed UFW**
+   ```bash
+   sudo apt update
+   sudo apt install ufw -y
+Enabled the Firewall
 
-## Command Used
-```bash
-nmap 192.168.0.108 -Pn -sS -sV -oN nmap_scan_results.txt
-@"
-# Task 1 — Basic Network Scan with Nmap
+bash
+Copy code
+sudo ufw enable
+Allowed SSH (Port 22)
 
-**Project:** Basic Network Scanning (Internship Task)  
-**Target:** 192.168.0.108  
-**Scan Date:** November 2025  
-**Author:** Vivek Nanda  
+bash
+Copy code
+sudo ufw allow ssh
+Denied HTTP (Port 80)
 
----
+bash
+Copy code
+sudo ufw deny http
+Checked Firewall Status
 
-## Overview
-This folder contains the results and documentation for a basic Nmap network scan performed on a local virtual machine or authorized lab system.
+bash
+Copy code
+sudo ufw status verbose
+Reset Firewall (if needed)
 
----
+bash
+Copy code
+sudo ufw reset
+🧾 Output Screenshot
+Below is the screenshot showing the active firewall rules configured successfully.
 
-## Files Included
-- nmap_scan_results.txt — Raw Nmap output  
-- screenshots/ — Screenshots of the Nmap scan results  
-- README.md — Documentation explaining the process  
 
----
+🎬 Demo Video
+Watch the step-by-step demonstration of configuring the firewall using UFW:
+📽️ demo_video.mp4
 
-## Command Used
-```bash
-nmap 192.168.0.108 -Pn -sS -sV -oN nmap_scan_results.txt
+📄 Script File
+The automation script used to configure the firewall:
 
-Command Explanation:
+File: ufw_configuration.sh
 
--Pn → Disables host discovery (treats the host as online).
+✅ Conclusion
+The firewall was successfully configured using UFW to:
 
--sS → Performs a stealth SYN scan to identify open ports.
+Allow SSH connections
 
--sV → Detects versions of the services running on those ports.
+Deny HTTP access
 
--oN → Saves the output to a normal text file (nmap_scan_results.txt).
+Verify and monitor firewall rules
 
-Scan Summary
+This setup ensures enhanced system security by managing allowed and restricted network traffic.
 
-The scan identified open ports such as 135, 139, and 445,
-which correspond to Microsoft RPC, NetBIOS, and SMB services.
-These are typical for Windows systems and indicate network file sharing and remote communication capabilities.
+👨‍💻 Author
 
-Notes
-
-This activity demonstrates how to perform a safe and legal network scan using Nmap for cybersecurity learning purposes.
-Always scan only systems that you own or have explicit permission to test.
-
+Viveknanda Karuppasamy
+Security Analyst Internship Project
+GitHub: viveknandakaruppasamy
